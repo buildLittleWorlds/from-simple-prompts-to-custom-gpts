@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Try It Yourself | From Simple Prompts to Custom GPTs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Additional styles for this page */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-family: var(--font-heading);
+            font-weight: 500;
+            color: var(--medium-gray);
+            margin-bottom: var(--space-xl);
+            transition: color var(--transition-fast);
+        }
+        .back-link:hover {
+            color: var(--primary-blue);
+        }
+        .page-header {
+            padding: var(--space-3xl) 0 var(--space-xl);
+            border-bottom: 1px solid var(--light-gray);
+            margin-bottom: var(--space-2xl);
+        }
+        .page-header h1 {
+            font-size: 2.25rem;
+            margin-bottom: var(--space-md);
+        }
+        .page-header p {
+            font-size: 1.125rem;
+            color: var(--medium-gray);
+            max-width: 700px;
+        }
+        .step {
+            margin-bottom: var(--space-2xl);
+            padding-bottom: var(--space-xl);
+            border-bottom: 1px solid var(--light-gray);
+        }
+        .step:last-child {
+            border-bottom: none;
+        }
+        .step-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+        }
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-gold-light) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1.125rem;
+            flex-shrink: 0;
+        }
+        .step-header h2 {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+        .step-content {
+            padding-left: calc(40px + var(--space-md));
+        }
+        .step-content p {
+            color: var(--medium-gray);
+            margin-bottom: var(--space-md);
+        }
+        .copy-block {
+            background-color: var(--off-white);
+            border: 1px solid var(--light-gray);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            margin-bottom: var(--space-lg);
+        }
+        .copy-block-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-sm) var(--space-md);
+            background-color: var(--light-gray);
+            border-bottom: 1px solid var(--light-gray);
+        }
+        .copy-block-label {
+            font-family: var(--font-heading);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--medium-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .copy-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            background-color: var(--white);
+            border: 1px solid var(--light-gray);
+            border-radius: var(--radius-sm);
+            padding: var(--space-xs) var(--space-sm);
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--medium-gray);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        .copy-btn:hover {
+            background-color: var(--primary-blue);
+            border-color: var(--primary-blue);
+            color: var(--white);
+        }
+        .copy-btn.copied {
+            background-color: var(--success);
+            border-color: var(--success);
+            color: var(--white);
+        }
+        .copy-block-content {
+            padding: var(--space-md);
+            font-family: 'Fira Code', 'Consolas', 'Monaco', monospace;
+            font-size: 0.875rem;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            color: var(--text-dark);
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .file-download {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            background-color: var(--secondary-blue);
+            color: var(--white);
+            padding: var(--space-md) var(--space-xl);
+            border-radius: var(--radius-md);
+            font-family: var(--font-heading);
+            font-weight: 600;
+            transition: all var(--transition-base);
+        }
+        .file-download:hover {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        .equivalence-box {
+            background: linear-gradient(135deg, #e7f3ff 0%, #f0f7ff 100%);
+            border: 2px solid var(--secondary-blue);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            margin: var(--space-2xl) 0;
+        }
+        .equivalence-box h3 {
+            color: var(--primary-blue);
+            margin-bottom: var(--space-md);
+        }
+        .equivalence-box p {
+            color: var(--text-dark);
+            margin-bottom: var(--space-md);
+        }
+        .equivalence-box p:last-child {
+            margin-bottom: 0;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: var(--space-md);
+        }
+        .comparison-table th,
+        .comparison-table td {
+            padding: var(--space-md);
+            text-align: left;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        .comparison-table th {
+            background-color: var(--off-white);
+            font-family: var(--font-heading);
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+        .comparison-table td:first-child {
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+        @media (max-width: 768px) {
+            .step-content {
+                padding-left: 0;
+                margin-top: var(--space-md);
+            }
+            .step-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Page Header -->
+    <div class="container">
+        <div class="page-header">
+            <a href="index.html" class="back-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                Back to Overview
+            </a>
+            <h1>Try It Yourself: Prompt + File</h1>
+            <p>No Custom GPT needed. Use this prompt and file in any ChatGPT conversation (free or paid) to create the same permit assistant experience.</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Equivalence Box -->
+        <div class="equivalence-box">
+            <h3>This Is What a Custom GPT Really Is</h3>
+            <p>The "St. Charles Permit Guide" Custom GPT that you see in Demo 1? It's just this prompt plus this file, packaged up for convenience.</p>
+            <p>By doing the steps below, you're creating <strong>exactly the same thing</strong>&mdash;a specialized AI assistant grounded in a specific document. The only difference is that with a Custom GPT, the prompt and file are pre-loaded so you don't have to paste them each time.</p>
+        </div>
+
+        <!-- Step 1: Download the File -->
+        <div class="step">
+            <div class="step-header">
+                <div class="step-number">1</div>
+                <h2>Download the Knowledge File</h2>
+            </div>
+            <div class="step-content">
+                <p>This PDF contains permit FAQ information for the City of St. Charles. It's what gives the assistant its specialized knowledge.</p>
+                <a href="https://raw.githubusercontent.com/buildLittleWorlds/day-2-demo-edc/main/FAQ.pdf" class="file-download" download>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    Download FAQ.pdf
+                </a>
+            </div>
+        </div>
+
+        <!-- Step 2: Copy the Prompt -->
+        <div class="step">
+            <div class="step-header">
+                <div class="step-number">2</div>
+                <h2>Copy This Prompt</h2>
+            </div>
+            <div class="step-content">
+                <p>This is the "instructions" part&mdash;it tells the AI how to behave, what tone to use, and how to format responses.</p>
+                <div class="copy-block">
+                    <div class="copy-block-header">
+                        <span class="copy-block-label">Prompt Instructions</span>
+                        <button class="copy-btn" onclick="copyToClipboard(this)">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                            Copy
+                        </button>
+                    </div>
+                    <div class="copy-block-content" id="prompt-text">You are a helpful permit information assistant for the City of St. Charles, Missouri. Your role is to help residents and contractors understand permit requirements, application processes, and fees.
+
+GUIDELINES:
+1. Always be friendly, patient, and professional
+2. Use the uploaded FAQ document as your primary source of information
+3. If information isn't in the FAQ, acknowledge that and suggest contacting the City directly
+4. Provide specific details when available (fees, timelines, requirements)
+5. When users describe a project, help them identify which permits they likely need
+6. Always recommend consulting with the Building Division for complex projects
+
+RESPONSE FORMAT:
+- Keep answers concise but complete
+- Use bullet points for lists of requirements
+- Include relevant fees when discussing specific permits
+- End with a helpful follow-up question or next step suggestion
+
+CONTACT INFORMATION TO PROVIDE WHEN RELEVANT:
+- City of St. Charles Building Division
+- Phone: (636) 949-3200
+- Address: 200 N. Second Street, St. Charles, MO 63301
+
+LIMITATIONS:
+- You cannot submit permit applications
+- You cannot guarantee approval of any permit
+- You cannot provide legal advice
+- Always recommend professional consultation for complex construction projects</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 3: Start a Conversation -->
+        <div class="step">
+            <div class="step-header">
+                <div class="step-number">3</div>
+                <h2>Start a New ChatGPT Conversation</h2>
+            </div>
+            <div class="step-content">
+                <p>Go to <a href="https://chat.openai.com" target="_blank" rel="noopener noreferrer">chat.openai.com</a> (works with free or paid accounts).</p>
+                <p>In the message box:</p>
+                <ol style="list-style: decimal; margin-left: var(--space-xl); margin-bottom: var(--space-lg); color: var(--medium-gray);">
+                    <li style="margin-bottom: var(--space-sm);"><strong style="color: var(--text-dark);">Paste the prompt</strong> you copied above</li>
+                    <li style="margin-bottom: var(--space-sm);"><strong style="color: var(--text-dark);">Attach the PDF</strong> using the paperclip icon</li>
+                    <li style="margin-bottom: var(--space-sm);"><strong style="color: var(--text-dark);">Send the message</strong></li>
+                </ol>
+                <p>That's it. The AI now has its instructions (the prompt) and its knowledge (the file).</p>
+            </div>
+        </div>
+
+        <!-- Step 4: Test It -->
+        <div class="step">
+            <div class="step-header">
+                <div class="step-number">4</div>
+                <h2>Test Your Assistant</h2>
+            </div>
+            <div class="step-content">
+                <p>Try asking these questions:</p>
+                <ul style="list-style: disc; margin-left: var(--space-xl); margin-bottom: var(--space-lg); color: var(--medium-gray);">
+                    <li style="margin-bottom: var(--space-sm);">"Do I need a permit to build a deck?"</li>
+                    <li style="margin-bottom: var(--space-sm);">"What are the fees for a building permit?"</li>
+                    <li style="margin-bottom: var(--space-sm);">"I want to add a fence to my backyard. What do I need?"</li>
+                    <li style="margin-bottom: var(--space-sm);">"How do I schedule an inspection?"</li>
+                </ul>
+                <p>Notice how the responses reference the FAQ document and follow the formatting guidelines from the prompt.</p>
+            </div>
+        </div>
+
+        <!-- Comparison Table -->
+        <div class="equivalence-box" style="background: linear-gradient(135deg, #fff8e1 0%, #fff3cd 100%); border-color: var(--accent-gold);">
+            <h3>What You Just Did vs. a Custom GPT</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Component</th>
+                        <th>What You Did</th>
+                        <th>Custom GPT</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Instructions</td>
+                        <td>Pasted the prompt</td>
+                        <td>Saved in "Instructions" field</td>
+                    </tr>
+                    <tr>
+                        <td>Knowledge</td>
+                        <td>Uploaded the PDF</td>
+                        <td>Uploaded to "Knowledge" section</td>
+                    </tr>
+                    <tr>
+                        <td>Reusability</td>
+                        <td>Must repeat each new chat</td>
+                        <td>Pre-loaded every time</td>
+                    </tr>
+                    <tr>
+                        <td>Sharing</td>
+                        <td>Share prompt + file separately</td>
+                        <td>Share via single link</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="margin-top: var(--space-lg);"><strong>The AI behavior is identical.</strong> Custom GPTs are just convenient packaging.</p>
+        </div>
+
+        <!-- Back to Overview -->
+        <div style="text-align: center; padding: var(--space-2xl) 0;">
+            <a href="index.html" class="back-link" style="font-size: 1.125rem;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                Back to Overview
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <p class="demo-notice">This is a demonstration website for AI training purposes.</p>
+        </div>
+    </footer>
+
+    <script>
+        function copyToClipboard(button) {
+            const text = document.getElementById('prompt-text').innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Copied!';
+                button.classList.add('copied');
+                setTimeout(() => {
+                    button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy';
+                    button.classList.remove('copied');
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
