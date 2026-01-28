@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>From Simple Prompts to Custom GPTs | EDC of St. Charles County</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <div class="top-bar-left">
+                <span>Economic Development Council of St. Charles County, Missouri</span>
+            </div>
+            <div class="top-bar-right">
+                <a href="tel:636-441-6880">(636) 441-6880</a>
+                <span class="divider">|</span>
+                <a href="mailto:info@edcscc.com">info@edcscc.com</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>From Simple Prompts to Custom GPTs</h1>
+                <p class="hero-subtitle">Understanding how AI assistants really work &mdash; and how to build your own</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 1: The Basics -->
+    <section class="content-section">
+        <div class="container">
+            <span class="section-number">The Basics</span>
+            <h2>Prompt and Response</h2>
+            <p>When you type something into ChatGPT, something simple happens: the AI reads your prompt and generates a response. That's the entire interaction.</p>
+            <p>Each conversation starts fresh. The AI has no memory of past conversations&mdash;it only knows what you've told it in the current chat.</p>
+
+            <div class="diagram">
+                <div class="diagram-flow">
+                    <div class="diagram-box user">
+                        <div class="diagram-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                        </div>
+                        <div class="diagram-label">You</div>
+                    </div>
+                    <div class="diagram-arrow">&rarr;</div>
+                    <div class="diagram-box">
+                        <div class="diagram-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                        </div>
+                        <div class="diagram-label">Prompt</div>
+                    </div>
+                    <div class="diagram-arrow">&rarr;</div>
+                    <div class="diagram-box ai">
+                        <div class="diagram-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                        </div>
+                        <div class="diagram-label">AI</div>
+                    </div>
+                    <div class="diagram-arrow">&rarr;</div>
+                    <div class="diagram-box">
+                        <div class="diagram-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="17" y1="10" x2="3" y2="10"></line><line x1="21" y1="6" x2="3" y2="6"></line><line x1="21" y1="14" x2="3" y2="14"></line><line x1="17" y1="18" x2="3" y2="18"></line></svg>
+                        </div>
+                        <div class="diagram-label">Response</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: The Problem -->
+    <section class="content-section alt-bg">
+        <div class="container">
+            <span class="section-number">The Problem</span>
+            <h2>Wanting Repeatability</h2>
+            <p>Sometimes you get a response that's exactly what you needed&mdash;helpful, well-formatted, accurate. You want that same quality every time.</p>
+            <p>But the next time you ask a similar question, the response is different. Maybe it's shorter. Maybe it uses a different format. Maybe it takes a different approach entirely.</p>
+            <p><strong>The AI doesn't remember what worked before.</strong> Every new conversation, you're starting over from scratch.</p>
+
+            <div class="diagram">
+                <div class="diagram-inconsistent">
+                    <div class="conversation-example">
+                        <div class="conversation-label">Monday:</div>
+                        <div class="conversation-bubbles">
+                            <div class="bubble user-bubble">Draft a professional email declining this meeting</div>
+                            <div class="bubble ai-bubble">Dear [Name], Thank you for the invitation. Unfortunately, I have a scheduling conflict...</div>
+                        </div>
+                    </div>
+                    <div class="conversation-example">
+                        <div class="conversation-label">Tuesday:</div>
+                        <div class="conversation-bubbles">
+                            <div class="bubble user-bubble">Draft a professional email declining this meeting</div>
+                            <div class="bubble ai-bubble different">Hi! I won't be able to make it to your meeting. Let me know if there's another time that works!</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p style="text-align: center; font-size: 0.9375rem; color: var(--medium-gray); margin-top: var(--space-md);">Same request, different results. The dashed border shows how responses can vary.</p>
+        </div>
+    </section>
+
+    <!-- Section 3: Solution Level 1 -->
+    <section class="content-section">
+        <div class="container">
+            <span class="section-number">Solution Level 1</span>
+            <h2>Saving Your Prompts</h2>
+            <p>Here's the first insight: if you write good instructions once, why write them every time?</p>
+            <p>Create a text file with your instructions. Save it on your computer. At the start of each new conversation, paste those instructions into the chat before asking your question.</p>
+            <p>Now you're getting more consistent responses. The AI behaves the same way each time because it's receiving the same instructions each time.</p>
+
+            <div class="diagram">
+                <div class="diagram-flow">
+                    <div class="diagram-box file">
+                        <div class="diagram-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                        </div>
+                        <div class="diagram-label">Saved Prompt</div>
+                    </div>
+                    <div class="diagram-arrow">&rarr;</div>
+                    <div class="diagram-box">
+                        <div class="diagram-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                        </div>
+                        <div class="diagram-label">Paste</div>
+                    </div>
+                    <div class="diagram-arrow">&rarr;</div>
+                    <div class="diagram-box ai">
+                        <div class="diagram-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                        </div>
+                        <div class="diagram-label">AI</div>
+                    </div>
+                    <div class="diagram-arrow">&rarr;</div>
+                    <div class="diagram-box">
+                        <div class="diagram-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        </div>
+                        <div class="diagram-label">Consistent!</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="key-insight">
+                <p><strong>Key insight:</strong> You're essentially programming the AI's behavior with your saved prompt. The prompt is your code; the AI is your executor.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Adding Context -->
+    <section class="content-section alt-bg">
+        <div class="container">
+            <span class="section-number">Adding Context</span>
+            <h2>Files Make It Smarter</h2>
+            <p>Your prompt tells the AI <strong>how</strong> to respond&mdash;the tone, format, and approach you want.</p>
+            <p>But what if you want the AI to know specific facts? Your company's FAQ. Your department's policies. Your organization's style guide.</p>
+            <p>Upload a file along with your prompt. Now the AI can reference <strong>your</strong> information, not just its general knowledge. It can answer questions about your specific documents.</p>
+
+            <div class="diagram">
+                <div class="diagram-flow">
+                    <div class="diagram-vertical">
+                        <div class="diagram-box file">
+                            <div class="diagram-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                            </div>
+                            <div class="diagram-label">Prompt</div>
+                            <div style="font-size: 0.6875rem; color: var(--medium-gray); margin-top: 2px;">(behavior)</div>
+                        </div>
+                        <div class="diagram-plus">+</div>
+                        <div class="diagram-box file">
+                            <div class="diagram-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                            </div>
+                            <div class="diagram-label">Your Files</div>
+                            <div style="font-size: 0.6875rem; color: var(--medium-gray); margin-top: 2px;">(knowledge)</div>
+                        </div>
+                    </div>
+                    <div class="diagram-arrow">&rarr;</div>
+                    <div class="diagram-box ai">
+                        <div class="diagram-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                        </div>
+                        <div class="diagram-label">AI</div>
+                    </div>
+                    <div class="diagram-arrow">&rarr;</div>
+                    <div class="diagram-box">
+                        <div class="diagram-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                        </div>
+                        <div class="diagram-label">Grounded Response</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="key-insight">
+                <p><strong>Key insight:</strong> Prompt (behavior) + File (knowledge) = specialized assistant. You've now created something that acts the way you want and knows what you need it to know.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Packaging It Up -->
+    <section class="content-section">
+        <div class="container">
+            <span class="section-number">Packaging It Up</span>
+            <h2>Custom GPTs</h2>
+            <p>What if you didn't have to paste your prompt and upload your files every time you started a new conversation?</p>
+            <p>That's exactly what Custom GPTs are. They let you save:</p>
+            <ul style="list-style: disc; margin-left: var(--space-xl); margin-bottom: var(--space-lg); color: var(--medium-gray);">
+                <li style="margin-bottom: var(--space-sm);"><strong style="color: var(--text-dark);">Your instructions</strong> &mdash; the prompt that defines behavior</li>
+                <li style="margin-bottom: var(--space-sm);"><strong style="color: var(--text-dark);">Your files</strong> &mdash; the knowledge it can reference</li>
+                <li style="margin-bottom: var(--space-sm);"><strong style="color: var(--text-dark);">Conversation starters</strong> &mdash; helpful example questions to get started</li>
+            </ul>
+            <p>You can share your Custom GPT with others via a simple link. They get the same consistent, specialized assistant you built.</p>
+
+            <div class="diagram">
+                <div class="diagram-flow">
+                    <div class="diagram-vertical">
+                        <div class="diagram-box file" style="min-width: 140px;">
+                            <div class="diagram-label">Instructions</div>
+                        </div>
+                        <div class="diagram-plus">+</div>
+                        <div class="diagram-box file" style="min-width: 140px;">
+                            <div class="diagram-label">Knowledge Files</div>
+                        </div>
+                        <div class="diagram-plus">+</div>
+                        <div class="diagram-box file" style="min-width: 140px;">
+                            <div class="diagram-label">Starters</div>
+                        </div>
+                    </div>
+                    <div class="diagram-arrow">=</div>
+                    <div class="diagram-box gpt" style="min-width: 160px; padding: var(--space-lg);">
+                        <div class="diagram-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                        </div>
+                        <div class="diagram-label">Custom GPT</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="key-insight">
+                <p><strong>Key insight:</strong> A Custom GPT is just your saved prompt + files, packaged for convenience. The AI underneath works exactly the same way. There's no magic&mdash;just smart packaging.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: The Demos -->
+    <section class="demos-section">
+        <div class="container">
+            <h2>See It In Action</h2>
+            <p class="demos-intro">Now that you understand how Custom GPTs work, explore these demos that put the concepts into practice.</p>
+
+            <div class="demos-grid">
+                <!-- Demo 1 -->
+                <a href="https://buildlittleworlds.github.io/day-2-demo-edc/" class="demo-card" target="_blank" rel="noopener noreferrer">
+                    <div class="demo-card-header">
+                        <div class="demo-number">1</div>
+                        <div>
+                            <h3>St. Charles Permit Guide</h3>
+                            <span class="demo-type">Simple Custom GPT</span>
+                        </div>
+                    </div>
+                    <p>A straightforward FAQ assistant that answers permit questions using a single uploaded PDF. No complex logic&mdash;just prompt + knowledge file.</p>
+                    <div class="demo-teaches">
+                        <div class="demo-teaches-label">What it demonstrates</div>
+                        <p>Basic Custom GPT with instructions + one knowledge file. Shows how even simple setups create useful, specialized assistants.</p>
+                    </div>
+                    <span class="demo-link">View Demo Site <span>&rarr;</span></span>
+                </a>
+
+                <!-- Demo 2 -->
+                <a href="https://buildlittleworlds.github.io/day-2-demo-edc-step-up/" class="demo-card" target="_blank" rel="noopener noreferrer">
+                    <div class="demo-card-header">
+                        <div class="demo-number">2</div>
+                        <div>
+                            <h3>EDC Business Intake Assistant</h3>
+                            <span class="demo-type">Advanced Custom GPT</span>
+                        </div>
+                    </div>
+                    <p>A guided intake assistant that assesses business needs through a multi-step conversation and routes users to the appropriate EDC staff member.</p>
+                    <div class="demo-teaches">
+                        <div class="demo-teaches-label">What it demonstrates</div>
+                        <p>Complex prompts can create sophisticated workflows. The same prompt + file structure powers much more advanced behavior.</p>
+                    </div>
+                    <span class="demo-link">View Demo Site <span>&rarr;</span></span>
+                </a>
+
+                <!-- Demo 3 -->
+                <a href="https://buildlittleworlds.github.io/custom-gpt-instructions-by-focus-area/" class="demo-card" target="_blank" rel="noopener noreferrer">
+                    <div class="demo-card-header">
+                        <div class="demo-number">3</div>
+                        <div>
+                            <h3>Department AI Assistants Workshop</h3>
+                            <span class="demo-type">Hands-On Building</span>
+                        </div>
+                    </div>
+                    <p>Step-by-step instructions for building your own AI assistant. Choose ChatGPT Custom GPTs ($20/mo) or Google Gemini Gems (free).</p>
+                    <div class="demo-teaches">
+                        <div class="demo-teaches-label">What it demonstrates</div>
+                        <p>Now you try. Follow guided instructions to build a department-specific assistant for Accounting, Customer Service, Leadership, or Sales.</p>
+                    </div>
+                    <span class="demo-link">Start Building <span>&rarr;</span></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <p><strong>Economic Development Council of St. Charles County</strong></p>
+            <p class="demo-notice">This is a demonstration website for AI training purposes.</p>
+            <div class="footer-contact">
+                <p>
+                    <a href="tel:636-441-6880">(636) 441-6880</a> &nbsp;|&nbsp;
+                    <a href="mailto:info@edcscc.com">info@edcscc.com</a> &nbsp;|&nbsp;
+                    <a href="https://edcscc.com" target="_blank" rel="noopener noreferrer">edcscc.com</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
